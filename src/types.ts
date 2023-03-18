@@ -52,3 +52,9 @@ export interface LikesDislikesDB {
 export interface PlaylistWithCreatorDB extends PostModel {
   creator_name: string;
 }
+
+export interface TokenPayload {
+  id: string;
+  name: string;
+  role: USER_ROLES;
+}
