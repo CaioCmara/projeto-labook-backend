@@ -85,3 +85,15 @@ INSERT INTO
 VALUES ("u001", "p002", 1), ("u001", "p001", 1), ("u002", "p001", 0);
 
  
+ SELECT 
+    posts.id,
+    posts.creator_id,
+    posts.content,
+    posts.likes,
+    posts.dislikes,
+    posts.created_at,
+    posts.updated_at,
+    users.name AS creator_name
+FROM posts
+JOIN users
+ON posts.creator_id = users.id;

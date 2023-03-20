@@ -49,7 +49,13 @@ export interface LikesDislikesDB {
   has_like: number;
 }
 
-export interface PlaylistWithCreatorDB extends PostModel {
+export enum POST_LIKE {
+  ALREADY_LIKED = "ALREADY LIKED",
+  ALREADY_DISLIKED = "ALREADY DISLIKED",
+}
+
+
+export interface PostWithCreatorDB extends PostModel {
   creator_name: string;
 }
 
@@ -58,3 +64,5 @@ export interface TokenPayload {
   name: string;
   role: USER_ROLES;
 }
+
+
