@@ -37,7 +37,7 @@ export class PostController {
 
             await this.postBusiness.createPost(input)
     
-            res.status(201).end()
+            res.status(201).send("Post criado com sucesso")
         } catch (error) {
             console.log(error);
             
@@ -59,7 +59,7 @@ export class PostController {
 
             await this.postBusiness.editPost(input)
     
-            res.status(201).end()
+            res.status(201).send("Post editado com suceso")
         } catch (error) {
             console.log(error);
             
@@ -80,7 +80,7 @@ export class PostController {
 
             await this.postBusiness.deletePost(input)
     
-            res.status(200).end()
+            res.status(200).send("Post deletado com sucesso")
         } catch (error) {
             console.log(error);
             

@@ -1,4 +1,4 @@
-import { PostDatabase } from "../database/PostDatabase";
+import { PostDatabase } from "../database/PostDataBase";
 import { Post } from "../models/Post";
 
 import {
@@ -46,13 +46,13 @@ export class PostBusiness {
     const posts = postsWithCreatorsDB.map((postWithCreatorDB) => {
       const post = new Post(
         postWithCreatorDB.id,
-        postWithCreatorDB.creator.id,
+        postWithCreatorDB.creator?.id,
         postWithCreatorDB.content,
         postWithCreatorDB.likes,
         postWithCreatorDB.dislikes,
         postWithCreatorDB.created_at,
         postWithCreatorDB.updated_at,
-        postWithCreatorDB.creator.name
+        postWithCreatorDB.creator?.name
       );
 
       return post.toBusinessModel();
@@ -191,18 +191,18 @@ export class PostBusiness {
   ): Promise<void> => {
     const { token, likeId, like } = input;
 
-    if (!token) {
+    if (token === undefined) {
       throw new Error("'token' não informado");
     }
 
     const payload = this.tokenManager.getPayload(token);
 
-    if (!payload) {
+    if (payload === null) {
       throw new Error("'token' invalido");
     }
 
     if (typeof like !== "boolean") {
-      throw new Error("'like' deve ser 1 ou 2");
+      throw new Error("'like' deve ser true ou false");
     }
 
     const postWithCreatorDB = await this.postDatabase.postWithCreatorById(
@@ -224,7 +224,7 @@ export class PostBusiness {
 
     const post = new Post(
       postWithCreatorDB.id,
-      postWithCreatorDB.creator.id,
+      postWithCreatorDB.creator?.id,
       postWithCreatorDB.content,
       postWithCreatorDB.likes,
       postWithCreatorDB.dislikes,

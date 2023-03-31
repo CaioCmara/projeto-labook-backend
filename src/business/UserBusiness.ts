@@ -1,10 +1,10 @@
-import { UserDataBase } from "../database/UserDatabase";
+import { UserDataBase } from "../database/UserDataBase";
 import {
   LoginInput,
   LoginOutput,
   SignupInput,
   SignupOutput,
-} from "../dtos/UserDTOS";
+} from "../dtos/userDTOS";
 import { User } from "../models/User";
 import { HashManager } from "../services/HashManager";
 import { IdGenerator } from "../services/IdGenerator";
@@ -86,9 +86,7 @@ export class UserBusiness {
         throw new Error("'email' não encontrado")
     }
 
-    if (password !== userDB.password) {
-        throw new Error("'email' ou 'senha' incorretos")
-    }
+ 
 
     const user = new User(
         userDB.id,
@@ -98,13 +96,9 @@ export class UserBusiness {
         userDB.role,
         userDB.created_at
     )
-    const hashedPassword = user.getPassword();
+ 
 
-    const rightPassword = await this.hashManager.compare(
-      password,
-      hashedPassword
-    );
-
+    const rightPassword = await this.hashManager.compare(password, userDB.password);
     
     if (!rightPassword) {
         throw new Error("Senha incorreta")
