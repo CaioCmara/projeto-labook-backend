@@ -23,35 +23,16 @@ Você pode acessar a documentação no Postman [clicando aqui](https://documente
 ##  Funcionalidades do projeto 
 
 - [x] Signup:
-- name;
-- email;
-- password;
-
 - [x] Login:
-- email;
-- password;
-
 - [x] Get posts:
-- id;
-- content;
-- likes;
-- dislikes;
-- createdAt;
-- updatedAt;
-- creator 
-
 - [x] Edit posts:
-- content;
- 
 - [x] Delete post:
-
 - [x] Like ou Dislike post:
 
+ 
 ##  Banco de Dados
 
 ![mydiagram](https://user-images.githubusercontent.com/87785891/229253404-09f0da42-2a15-40e2-9fb7-77d560e5304e.png)
-
-
 
 ## Rodando o projeto
 1. Faça um clone desse repositório;
@@ -64,3 +45,6 @@ $ npm i
 
 4. Rode o app. 
 $ npm run dev
+
+
+ 
