@@ -31,8 +31,8 @@ Você pode acessar a documentação no Postman [clicando aqui](https://documente
 
  
 ##  Banco de Dados
+![Untitled](https://user-images.githubusercontent.com/87785891/229340955-e73bb0e5-6dc2-4d07-9b7d-e0e20b436c47.png)
 
-![mydiagram](https://user-images.githubusercontent.com/87785891/229253404-09f0da42-2a15-40e2-9fb7-77d560e5304e.png)
 
 ## Rodando o projeto
 1. Faça um clone desse repositório;
